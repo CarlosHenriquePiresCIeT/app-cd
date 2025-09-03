@@ -14,6 +14,8 @@ jobs:
   main:
     runs-on: macos-latest
     steps:    
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup java
         uses: actions/setup-java@v3
@@ -41,10 +43,10 @@ jobs:
       - name: Upload to Firebase App Distribution
         run: |
           firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
-            --app "1:105900131676:android:9884b736c70de108382d99" \
+            --app "1:105900131676:android:af0995591f9f13ea382d99" \
             --groups "testers" \
             --release-notes "Nova build automática via GitHub Actions" \
-            --token "1//0hS5F72SmOgVGCgYIARAAGBESNwF-L9IrhN84epW9hLFeBUN676JglDTaL8ryQ6MNGMm37dyjPHVjFjuC9uN594cl8A6UtIi16z4"
+            --token "1//0hQVs5wNxkD6QCgYIARAAGBESNwF-L9Irbh1n-2QNKkgb0F_sJ0YmdURVE1R69px1HjfeW4ubDOT348mQA5y9O0CJLyktygmDS_M"
 
       # - name: Build appBundle
       #   run: flutter build appbundle
