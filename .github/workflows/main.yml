@@ -13,17 +13,7 @@ env:
 jobs:
   main:
     runs-on: macos-latest
-    steps:
-
-      - name: Clone repository
-        uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-          
-      - uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: |
-            ${{ secrets.PRIVATE_KEY_SUBMODULE }}
+    steps:    
 
       - name: Setup java
         uses: actions/setup-java@v3
@@ -44,17 +34,17 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
         
-      # - name: Install Firebase CLI
-      #   run: |
-      #     curl -sL https://firebase.tools | bash
+      - name: Install Firebase CLI
+        run: |
+          curl -sL https://firebase.tools | bash
 
-      # - name: Upload to Firebase App Distribution
-      #   run: |
-      #     firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
-      #       --app "1:105900131676:android:9884b736c70de108382d99" \
-      #       --groups "testers" \
-      #       --release-notes "Nova build automática via GitHub Actions" \
-      #       --token "1//0hS5F72SmOgVGCgYIARAAGBESNwF-L9IrhN84epW9hLFeBUN676JglDTaL8ryQ6MNGMm37dyjPHVjFjuC9uN594cl8A6UtIi16z4"
+      - name: Upload to Firebase App Distribution
+        run: |
+          firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+            --app "1:105900131676:android:9884b736c70de108382d99" \
+            --groups "testers" \
+            --release-notes "Nova build automática via GitHub Actions" \
+            --token "1//0hS5F72SmOgVGCgYIARAAGBESNwF-L9IrhN84epW9hLFeBUN676JglDTaL8ryQ6MNGMm37dyjPHVjFjuC9uN594cl8A6UtIi16z4"
 
       # - name: Build appBundle
       #   run: flutter build appbundle
