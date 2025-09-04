@@ -58,6 +58,10 @@ jobs:
         # cd ..
         # zip -r app.ipa Payload
 
+      - name: Install Firebase CLI
+        run: |
+          curl -sL https://firebase.tools | bash
+          
       - name: Upload to Firebase App Distribution(iOS)
         run: |
           firebase appdistribution:distribute build/ios/iphoneos/app.ipa \
