@@ -40,13 +40,13 @@ jobs:
         run: |
           curl -sL https://firebase.tools | bash
 
-      - name: Upload to Firebase App Distribution(Android)
-        run: |
-          firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
-            --app "${{ secrets.APP_ANDROID_ID }}" \
-            --groups "testers" \
-            --release-notes "Nova build ANDROID automática via GitHub Actions" \
-            --token "${{ secrets.FIREBASE_TOKEN }}"
+      # - name: Upload to Firebase App Distribution(Android)
+      #   run: |
+      #     firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+      #       --app "${{ secrets.APP_ANDROID_ID }}" \
+      #       --groups "testers" \
+      #       --release-notes "Nova build ANDROID automática via GitHub Actions" \
+      #       --token "${{ secrets.FIREBASE_TOKEN }}"
 
       - name: Build iOS App
         run: |
@@ -60,7 +60,7 @@ jobs:
 
       - name: Upload to Firebase App Distribution(iOS)
         run: |
-          firebase appdistribution:distribute build/ios/ipa/*.ipa \
+          firebase appdistribution:distribute build/ios/iphoneos/app.ipa \
             --app "${{ secrets.APP_IOS_ID }}" \
             --groups "testers" \
             --release-notes "Nova build automática iOS via GitHub Actions" \
