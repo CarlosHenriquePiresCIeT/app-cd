@@ -46,7 +46,7 @@ jobs:
             --app "${{ secrets.APP_ANDROID_ID }}" \
             --groups "testers" \
             --release-notes "Nova build automática via GitHub Actions" \
-      # --token "1//0hQVs5wNxkD6QCgYIARAAGBESNwF-L9Irbh1n-2QNKkgb0F_sJ0YmdURVE1R69px1HjfeW4ubDOT348mQA5y9O0CJLyktygmDS_M"
+            --token ""${{ secrets.FIREBASE_TOKEN }}""
 
       # - name: Build appBundle
       #   run: flutter build appbundle
